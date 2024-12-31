@@ -17,14 +17,6 @@ return {
             [110333320616502] = "Main"
         }
     },
-    [6508759464] = {
-        ["Folder"] = "Grace",
-        ["Main"] = "Grace",
-        ["Place"] = {
-            [138837502355157] = "Lobby",
-            [110333320616502] = "Main"
-        }
-    },
     [1709917610] = {
         ["Folder"] = "Regretevator",
         ["Main"] = "Regretevator",

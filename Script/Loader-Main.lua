@@ -6,9 +6,9 @@ local function load(url)
 end
 getgenv().CFHub_Toggles = Toggles
 getgenv().CFHub_Options = Options
-local Library = load(librepo .. 'Library.lua')
-local ThemeManager = load(librepo .. 'addons/ThemeManager.lua')
-local SaveManager = load(librepo .. 'addons/SaveManager.lua')
+Library = load(librepo .. 'Library.lua')
+ThemeManager = load(librepo .. 'addons/ThemeManager.lua')
+SaveManager = load(librepo .. 'addons/SaveManager.lua')
 local PlaceTable = load(baseUrl .. "GameTable.lua")
 print("--LinoriaLib等加载完成--------------------------尝试加载中--")
 if not PlaceTable[game.GameId] then

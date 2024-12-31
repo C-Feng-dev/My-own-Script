@@ -69,7 +69,7 @@ local function NotifiEntity(inst,EntityName,NotifyName,mode,deltoggle)
         end
     end
 end
-local Tabs = {
+Tabs = {
     Main = Window:AddTab('主界面'),
     Act = Window:AddTab('行为'),
     Misc = Window:AddTab('杂项')
@@ -234,8 +234,6 @@ ActEsp:AddToggle('doorsesp',{
                     if themodel.Parent.Parent.Name == "Rooms" then--第一个Parent为房间号
                         if themodel:WaitForChild("Door"):IsA("Model") then
                             createBilltoesp(themodel:WaitForChild("Door"),"门", Color3.new(0,1,0),true)
-                        elseif themodel:WaitForChild("Door"):IsA("Part") then
-                            createBilltoesp(themodel,"门", Color3.new(0,1,0),true)
                         end
                     end
                 end
@@ -245,8 +243,6 @@ ActEsp:AddToggle('doorsesp',{
                     if themodel.Parent.Parent.Name == "Rooms" then
                         if themodel:WaitForChild("Door"):IsA("Model") then
                             createBilltoesp(themodel:WaitForChild("Door"),"门", Color3.new(0,1,0),true)
-                        elseif themodel:WaitForChild("Door"):IsA("Part") then
-                            createBilltoesp(themodel,"门", Color3.new(0,1,0),true)
                         end
                     end
                 end

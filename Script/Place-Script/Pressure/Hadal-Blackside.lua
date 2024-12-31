@@ -57,7 +57,7 @@ function copyitems(copyitem) -- 复制物品
     create_NumberValue.Name = copyitem
     create_NumberValue.Parent = game.Players.LocalPlayer.PlayerFolder.Inventory
 end
-function createBilltoesp(theobject,name,color,hlset) -- 创建BillboardGui-颜色:Color3.new(r,g,b)
+local function createBilltoesp(theobject,name,color,hlset) -- 创建BillboardGui-颜色:Color3.new(r,g,b)
     bill = Instance.new("BillboardGui", theobject) -- 创建BillboardGui
     bill.AlwaysOnTop = true
     bill.Size = UDim2.new(0, 100, 0, 50)

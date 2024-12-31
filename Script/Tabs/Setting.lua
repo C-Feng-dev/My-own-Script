@@ -15,11 +15,8 @@ function LoadSetting(defaultWatermark)
             Library.KeybindFrame.Visible = Value
         end
     })
-    MenuGroup:AddLabel('菜单按键'):AddKeyPicker('MenuKeybind', {
-        Default = 'RightShift',
-        NoUI = true,
-        Text = '菜单键'
-    })
+    MenuGroup:AddLabel('菜单按键'):AddKeyPicker('MenuKeybind', { Default = 'RightShift', NoUI = true, Text = '菜单键' })
+    Library.ToggleKeybind = Options.MenuKeybind
     local defaultWatermark = defaultWatermark or true
     if defaultWatermark then
         local FrameTimer = tick()
