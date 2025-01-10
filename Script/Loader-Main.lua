@@ -4,11 +4,10 @@ local librepo = 'https://raw.githubusercontent.com/C-Feng-dev/LinoriaLib/main/'
 local function load(url)
     return loadstring(game:HttpGet(url))()
 end
-getgenv().CFHub_Toggles = Toggles
-getgenv().CFHub_Options = Options
 Library = load(librepo .. 'Library.lua')
 ThemeManager = load(librepo .. 'addons/ThemeManager.lua')
 SaveManager = load(librepo .. 'addons/SaveManager.lua')
+ESPLibrary = load("https://raw.githubusercontent.com/mstudio45/MSESP/refs/heads/main/source.luau")s
 local PlaceTable = load(baseUrl .. "GameTable.lua")
 print("--LinoriaLib等加载完成--------------------------尝试加载中--")
 if not PlaceTable[game.GameId] then
@@ -44,4 +43,3 @@ local function loadfinish(location) -- 加载完成后向控制台发送
     print("--------------------------欢迎使用--------------------------")
 end
 loadfinish(ScriptPath(" - "))
-Library:Notify("加载成功!")

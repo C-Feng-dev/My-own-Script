@@ -5,20 +5,20 @@ local humanoid = Character:FindFirstChild("Humanoid") -- 本地玩家humanoid
 local PlayerGui = Players.LocalPlayer.PlayerGui--本地玩家PlayerGui
 local RS = game:GetService("ReplicatedStorage")
 local function createBilltoesp(theobject,name,color,hlset) -- 创建BillboardGui-颜色:Color3.new(r,g,b)
-    bill = Instance.new("BillboardGui", theobject) -- 创建BillboardGui
+    local bill = Instance.new("BillboardGui", theobject) -- 创建BillboardGui
     bill.AlwaysOnTop = true
     bill.Size = UDim2.new(0, 100, 0, 50)
     bill.Adornee = theobject
     bill.MaxDistance = 2000
-    bill.Name = name .. "esp"
-    mid = Instance.new("Frame", bill) -- 创建Frame-圆形
+    bill.Name = name .. "透视"
+    local mid = Instance.new("Frame", bill) -- 创建Frame-圆形
     mid.AnchorPoint = Vector2.new(0.5, 0.5)
     mid.BackgroundColor3 = color
     mid.Size = UDim2.new(0, 8, 0, 8)
     mid.Position = UDim2.new(0.5, 0, 0.5, 0)
     Instance.new("UICorner", mid).CornerRadius = UDim.new(1, 0)
     Instance.new("UIStroke", mid)
-    txt = Instance.new("TextLabel", bill) -- 创建TextLabel-显示
+    local txt = Instance.new("TextLabel", bill) -- 创建TextLabel-显示
     txt.AnchorPoint = Vector2.new(0.5, 0.5)
     txt.BackgroundTransparency = 1
     txt.TextColor3 =color
@@ -41,6 +41,18 @@ local function createBilltoesp(theobject,name,color,hlset) -- 创建BillboardGui
                 task.wait()
             end
         end)
+    end
+end
+local function unesp(name) -- unEsp物品用
+    for _, esp in pairs(workspace:GetDescendants()) do
+        if esp.Name == name .. "透视" then
+            esp:Destroy()
+        end
+    end
+    for _, hl in pairs(workspace:GetDescendants()) do
+        if hl.Name == name .. "透视高光" then
+            hl:Destroy()
+        end
     end
 end
 local function chatMessage(chat) -- 发送信息
@@ -345,7 +357,7 @@ ActEsp:AddToggle('SafeRoomVaultesp',{
         end
     end
 })
-ActDel:AddButton({
+ActDel:AddToggle('godmode',{
     Text = "God mode",
     Tooltip = "被某些实体'击杀'时可能会导致bug",
     Func = function(Value)
@@ -423,15 +435,7 @@ MiscScript:AddButton({
         loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
         Library:Notify("注入完成(如果没有加载则重试)",3)
     end
-})
-MiscScript:AddButton({
-    Text = "注入Dex v2 white(可能会卡顿)",
-    Func = function()
-        Library:Notify("尝试注入Dex v2 white中",3)
-        loadstring(game:HttpGet('https://raw.githubusercontent.com/MariyaFurmanova/Library/main/dex2.0'))()
-        Library:Notify("注入完成(如果没有加载则重试)",3)
-    end
-})
+})s
 workspaceDA = workspace.DescendantAdded:Connect(function(inst)
     NotifiEntity(inst,"Rush","Rush(粉怪)","spawn",Toggles.norush.Value)
     NotifiEntity(inst,"Worm","Worm(白怪)","spawn",Toggles.noworm.Value)
